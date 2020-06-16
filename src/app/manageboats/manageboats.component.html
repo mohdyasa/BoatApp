@@ -1,0 +1,72 @@
+<section>
+        <div class="panel panel-default">
+            <div class="panel-body" style="background-color: #f2f2f2">
+                <div class="card">
+                    <div class="page-header">
+                        <br />
+                        <h2 class="title" style="text-align: center; font-weight: bold">
+                        Add New Boat
+                        </h2>
+                        <br />
+                        <h2 class="title" style="text-align: center">
+                        </h2>
+                    </div>
+
+                    <div class="content" style="margin-left: 10px">
+                        <form [formGroup]="registerForm" (ngSubmit)="addBoat()">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-error>
+                                        <span *ngIf="!registerForm.get('BoatName').valid && registerForm.get('BoatName').touched">
+                                            Boat Name is required
+                                        </span>
+                                    </mat-error>
+                                    <mat-form-field appearance="outline" class="w-50">
+                                        <input formControlName="BoatName" matInput placeholder="Boat Name">
+                                        <mat-label>Boat Name</mat-label>
+                                    </mat-form-field>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-error>
+                                        <span *ngIf="!registerForm.get('Image').valid && registerForm.get('Image').touched">
+                                            Last
+                                            name is required
+                                        </span>
+
+                                    </mat-error>
+
+                                    <mat-label>Image</mat-label>
+                                    <input type="file" formControlName="Image" (change)="onFileSelect($event)" placeholder="Image">
+
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-error>
+                                        <span *ngIf="!registerForm.get('HourlyRate').valid && registerForm.get('HourlyRate').touched">
+                                            Last
+                                            name is required
+                                        </span>
+
+                                    </mat-error>
+                                    <mat-form-field appearance="outline" class="w-50">
+                                        <input formControlName="HourlyRate" matInput type="number" placeholder="Hourly Rate">
+                                        <mat-label>HourlyRate</mat-label>
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="offset-5 col-md-4 button-row">
+                                    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Submit</button>
+                                    <button mat-raised-button color="warn" (click)="resetForm()" type="button">Clear</button>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
